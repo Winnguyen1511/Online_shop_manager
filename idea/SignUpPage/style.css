@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #eff3f5, #bfd4c8);
+    /* text-align: center; */
 }
 .signup{
     /* margin: 0 auto; */
@@ -10,6 +11,7 @@ body {
     width: 100%;
     margin-left: 6%;
     margin-right: 50%;  
+    text-align: center;
 
 }
 .logo{
