@@ -170,23 +170,27 @@ function InforHandler()
     let email = txtEmail.value;
     let str_after = email.match(/@.*/);
     //here we count the dot in the after @ part
-    const dot_after = str_after[0].match(/\./g);
-    //If there is more than 3, it must be ipv6, otherwise, it failed.
-    if(dot_after.length > 3)
+    if(str_after != null)
     {
-        if(dot_after.length == 5)
+        const dot_after = str_after[0].match(/\./g);
+        //If there is more than 3, it must be ipv6, otherwise, it failed.
+        if(dot_after.length > 3)
         {
-            if(emailRegex_check_ipv6.test(str_after[0]) == true)
-                ipv6_extention = true;
+            if(dot_after.length == 5)
+            {
+                if(emailRegex_check_ipv6.test(str_after[0]) == true)
+                    ipv6_extention = true;
+            }
+            else{
+                ipv6_extention = false;
+            }
         }
         else{
-            ipv6_extention = false;
+            //if the extention is less than 4 dot, it still ok
+            ipv6_extention = true;
         }
     }
-    else{
-        //if the extention is less than 4 dot, it still ok
-        ipv6_extention = true;
-    }
+    
     //Here need both to be normal email and be ipv6 valid.
     let emailCheck = emailRegex.test(email) && ipv6_extention;
     
