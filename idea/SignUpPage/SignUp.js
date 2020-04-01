@@ -120,8 +120,8 @@ function addEvents()
         const popupError = document.getElementById("popupPassError");
         popupError.classList.remove("show");
 
-        
     });
+    
     txtPass.addEventListener("focusout", ()=>{
         // console.log("Out password");
         const popup = document.getElementById("popupPass");
@@ -158,42 +158,7 @@ function addEvents()
 function InforHandler()
 {
     let stat = true;
-    //Normal email must start with aphabet
-    //end with an domain name such as @gmail.com or dut.edu.vn
-    //This is not check the invalid domain name that have more than
-    //3 dot in the domain, which is only can be ipv6
-    const emailRegex = /^[A-Za-z][\w-\.]+@([\w-]+\.)+[\w-]{1,4}$/;
-    const emailRegex_check_ipv6 = /(\d{1,4}\.){5}(\d{1,4})$/;
-    //plit the after @ part
-    const passRegex = /^[\w@*\s]{6,}/;
-    let ipv6_extention = false;
-    let email = txtEmail.value;
-    let str_after = email.match(/@.*/);
-    //here we count the dot in the after @ part
-    if(str_after != null)
-    {
-        const dot_after = str_after[0].match(/\./g);
-        //If there is more than 3, it must be ipv6, otherwise, it failed.
-        if(dot_after.length > 3)
-        {
-            if(dot_after.length == 5)
-            {
-                if(emailRegex_check_ipv6.test(str_after[0]) == true)
-                    ipv6_extention = true;
-            }
-            else{
-                ipv6_extention = false;
-            }
-        }
-        else{
-            //if the extention is less than 4 dot, it still ok
-            ipv6_extention = true;
-        }
-    }
-    
-    //Here need both to be normal email and be ipv6 valid.
-    let emailCheck = emailRegex.test(email) && ipv6_extention;
-    
+    let emailCheck = validEmail_Full(txtEmail.value);
     if(emailCheck == false)
     {
         txtEmail.classList.add("text-error");
@@ -201,8 +166,8 @@ function InforHandler()
         popupError.classList.add("show");
         stat = false;
     }
-    let pass = txtPass.value;
-    if(passRegex.test(pass) == false)
+    let passCheck = validPass(txtPass.value);
+    if(passCheck == false)
     {
         txtPass.classList.add("text-error");
         const popupError = document.getElementById("popupPassError");
