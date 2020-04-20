@@ -1,19 +1,19 @@
-Sign up page new:
+Sign up page:
 1) Feature:  
-- Similar to the old signup and login page.
+- Email: start with an alphabet, no 2 @ in the mail  
+	the domain name cannot have more than 3 punctuation  
+	unless it is a domain IP or subdomain IP (ipv6)  
+- Password: must have more than 6 characters.  
 
 2) Technology:  
-	a) I re-organize the structure of the file, all js files are in /js,  
-	all css files are in /css.  
-	b) I also turn the valid-info.js into module, so we can load it just when we need.  
-	c) The main script js is also set as module, it import required modules.  
-	e) A database is added, using Promise() to call and to update the 'username.json'.  
-	- To read the .json file, we need an AJAX call, and JSON parse it into the object  
-	in our program.  
-	- The Promise is involved to handle the AJAX asynchronous request.
-3) Research:
-- AJAX
-- Asynchronous programming.
-- Promise ES6.
-
+	a) Regular Expression: for checking email and password validity  
+	b) DOM: document object model -> getElementById(), classList.add(),  
+					classList.remove(), classList.toggle()  
+					-> addEventsListener("click", () =>{});  
+					-> addEventsListener("focus"  
+					-> addEventsListener("focusout"  
+	c) HTML textbox: using <input class="popup"> class name canbe anything  
+			config in CSS stylesheet.  
+	d) Radio button: Choose gender  
+		<input type="radio"> -> radio button.  
 # Hope this help !
