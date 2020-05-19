@@ -17,6 +17,8 @@ body {
 /* di chuot vao button thi button se mờ */
 .btn-toggle-nav:hover {
     opacity: 50%;
+    background-size: 200%;
+    /* transition: 1s; */
 }
 
 .btn-toggle-nav {
@@ -28,6 +30,7 @@ body {
     background-size: 60%;
     background-position: center;
     cursor: pointer;
+    transition:background-size 0.3s;
 }
 
 .nav-main ul {
